@@ -29,7 +29,7 @@ export default function PodcastDetail({ data }) {
   const genreList = GetGenreIds(podcast.genres, genres);
 
   return (
-    <div className="p-6 bg-Background">
+    <div className="p-6 bg-Background  pb-25">
       <Link
         to="/"
         className="text-white text-4xl bg-NavBar-bg rounded-full px-4 mb-4 pb-2 pt-1"

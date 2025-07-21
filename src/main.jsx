@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
+import { AudioProvider } from "./components/AudioContext.jsx";
 
 /**
  * Entry point for the React application.
@@ -15,8 +16,10 @@ import { BrowserRouter } from "react-router-dom";
 // Select the root DOM element and render the application
 createRoot(document.getElementById("root")).render(
   <StrictMode>
-    <BrowserRouter>
-      <App />
-    </BrowserRouter>
+    <AudioProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </AudioProvider>
   </StrictMode>
 );

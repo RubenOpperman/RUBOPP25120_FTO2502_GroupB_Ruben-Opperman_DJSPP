@@ -1,3 +1,5 @@
+import { useAudio } from "./AudioContext";
+
 /**
  * Episodes Component
  *
@@ -18,7 +20,8 @@
  *
  * @returns {JSX.Element} A rendered list of podcast episodes.
  */
-export default function Episodes({ season, seasonImg }) {
+export default function Episodes({ season, podcast, seasonImg }) {
+  const { playEpisode } = useAudio();
   return (
     <>
       {season.map((episode) => (
@@ -38,6 +41,16 @@ export default function Episodes({ season, seasonImg }) {
             <p className="line-clamp-1 sm:text-md text-md font-medium text-Font-primary-color ">
               {episode.description}
             </p>
+          </div>
+          <div className="ml-auto   flex flex-col h-full">
+            <div className="">heart</div>
+
+            <button
+              className=" bg-NavBar-bg  text-white text-sm rounded-lg px-2 py-1"
+              onClick={() => playEpisode(episode, seasonImg, podcast)}
+            >
+              Play
+            </button>
           </div>
         </div>
       ))}

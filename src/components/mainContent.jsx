@@ -31,7 +31,7 @@ export default function MainContent({
   const genreList = GetGenreIds(genreIds, genres);
 
   return (
-    <div className="rounded-lg border-2 border-gray-400 h-full bg-Podcast-card p-2 shadow-lg font-serif">
+    <div className="rounded-lg border-2 border-gray-400 h-full bg-Podcast-card p-2 shadow-lg font-serif ">
       <div className="p-2">
         <div className="w-full h-full mx-auto rounded-lg mb-2 overflow-hidden">
           <img

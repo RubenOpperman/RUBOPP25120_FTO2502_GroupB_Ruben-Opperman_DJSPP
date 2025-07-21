@@ -136,6 +136,7 @@ export default function Seasons({ id, setOnEpisodeCount }) {
           <Episodes
             seasonImg={podcast.seasons[selectedSeason - 1].image}
             season={podcast.seasons[selectedSeason - 1].episodes}
+            podcast={podcast}
           />
         </div>
       </div>

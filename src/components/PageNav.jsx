@@ -11,7 +11,7 @@
  */
 export default function PageNav({ currentPage, totalPages, nextBtn, prevBtn }) {
   return (
-    <div className="flex justify-center gap-4 py-4 bg-NavBar-bg">
+    <div className="flex justify-center gap-4 py-4 bg-NavBar-bg pb-25 ">
       <button
         onClick={prevBtn}
         disabled={currentPage === 1}

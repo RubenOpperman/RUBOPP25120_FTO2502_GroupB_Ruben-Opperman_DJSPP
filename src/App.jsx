@@ -112,6 +112,7 @@ function App() {
       search={search}
       genre={genre}
       sort={sort}
+      podcastData={podcastData}
     >
       <Routes>
         <Route
@@ -124,13 +125,15 @@ function App() {
                 </div>
               </div>
             ) : (
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-Background">
-                {currentItems.map((podcast) => (
-                  <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
-                    <MainContent {...podcast} />
-                  </Link>
-                ))}
-              </div>
+              <>
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-Background">
+                  {currentItems.map((podcast) => (
+                    <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
+                      <MainContent {...podcast} />
+                    </Link>
+                  ))}
+                </div>
+              </>
             )
           }
         />

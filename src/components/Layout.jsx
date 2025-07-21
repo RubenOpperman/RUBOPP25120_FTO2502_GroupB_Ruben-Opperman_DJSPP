@@ -2,6 +2,7 @@ import Navbar from "./header";
 import Filter from "./filter";
 import PageNav from "./PageNav";
 import { useLocation } from "react-router-dom";
+import Carousel from "./Carousel";
 
 /**
  * Layout component that conditionally renders navigation, filter, pagination,
@@ -34,6 +35,7 @@ export default function Layout({
   search,
   genre,
   sort,
+  podcastData,
 }) {
   const location = useLocation();
   const isDetailPage = location.pathname.startsWith("/podcast/");
@@ -41,6 +43,8 @@ export default function Layout({
   return (
     <>
       {!isDetailPage && <Navbar search={search} onChange={onSearchChange} />}
+      {!isDetailPage && <Carousel podcastData={podcastData} />}
+
       {!isDetailPage && (
         <Filter
           genre={genre}

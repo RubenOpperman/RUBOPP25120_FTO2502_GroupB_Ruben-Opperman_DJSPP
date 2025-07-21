@@ -19,10 +19,25 @@ export function AudioProvider({ children }) {
     }
   }, [currentEpisode]);
 
+  useEffect(() => {
+    const handleBeforeUnload = (event) => {
+      if (audioRef.current && !audioRef.current.paused) {
+        event.preventDefault();
+        event.returnValue = "";
+        return "";
+      }
+    };
+
+    window.addEventListener("beforeunload", handleBeforeUnload);
+    return () => window.removeEventListener("beforeunload", handleBeforeUnload);
+  }, [currentEpisode]);
+
   const playEpisode = (episode, seasonImg, podcast) => {
     setCurrentEpisode(episode);
     setCurrentSeasonImg(seasonImg);
     setCurrentPodcast(podcast);
+
+    console.log(audioRef);
   };
 
   return (

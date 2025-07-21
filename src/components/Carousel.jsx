@@ -1,0 +1,61 @@
+import GetGenreIds from "../utils/getGenreIds";
+import { genres } from "../data/genreData";
+import Genres from "./genres";
+
+import React from "react";
+import Slider from "react-slick";
+import { useEffect, useState } from "react";
+import { Routes, Route, Link } from "react-router-dom";
+import MainContent from "./mainContent";
+
+export default function Carousel({ podcastData }) {
+  const recommendedShows = podcastData.filter((podcast) => {
+    const genreList = GetGenreIds(podcast.genres, genres);
+    return genreList.includes("History");
+  });
+
+  const settings = {
+    dots: false,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 1,
+  };
+
+  return (
+    <div className=" h-full bg-Background p-2 shadow-lg font-serif">
+      <h1 className="text-white text-2xl py-2 px-4 rounded-2xl">
+        Recommended Shows
+      </h1>
+      <div className="p-10">
+        <Slider {...settings}>
+          {recommendedShows.slice(0, 8).map((podcast) => {
+            const genreList = GetGenreIds(podcast.genres, genres);
+
+            return (
+              <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
+                <div className="rounded-lg border-2 border-gray-400 h-full bg-Podcast-card p-2 shadow-lg font-serif px-2">
+                  <div className="p-2">
+                    <div className="w-full h-full mx-auto rounded-lg mb-2 overflow-hidden">
+                      <img
+                        src={podcast.image}
+                        className="w-full h-full object-cover block rounded-2xl"
+                        alt={`Cover for ${podcast.title}`}
+                      />
+                    </div>
+
+                    <h2 className="text-lg font-bold p-1">{podcast.title}</h2>
+
+                    <div className="flex flex-wrap gap-2 mb-2">
+                      <Genres genreList={genreList} />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            );
+          })}
+        </Slider>
+      </div>
+    </div>
+  );
+}

@@ -20,6 +20,20 @@ export default function Carousel({ podcastData }) {
     speed: 500,
     slidesToShow: 4,
     slidesToScroll: 1,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: { slidesToShow: 3 },
+      },
+      {
+        breakpoint: 768,
+        settings: { slidesToShow: 2 },
+      },
+      {
+        breakpoint: 480,
+        settings: { slidesToShow: 1 },
+      },
+    ],
   };
 
   return (
@@ -34,7 +48,7 @@ export default function Carousel({ podcastData }) {
 
             return (
               <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
-                <div className="rounded-lg border-2 border-gray-400 h-full bg-Podcast-card p-2 shadow-lg font-serif px-2">
+                <div className="rounded-lg border-2 border-gray-400 md:h-[75vh] h-[60vh] bg-Podcast-card p-2 shadow-lg font-serif px-2">
                   <div className="p-2">
                     <div className="w-full h-full mx-auto rounded-lg mb-2 overflow-hidden">
                       <img

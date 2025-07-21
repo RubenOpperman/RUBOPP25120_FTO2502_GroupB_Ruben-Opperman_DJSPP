@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 
 /**
  * Navigation bar component for the Podcast Explorer app.
@@ -43,6 +44,12 @@ export default function Navbar({ onChange, search }) {
           <img src="../src/assets/apple-podcast.svg" alt="podcast icon" />
         </div>
         <div className="text-2xl p-5 font-bold">PodcastAPP</div>
+        <div className="mx-auto ">
+          <Link to={"/"} className="mr-3">
+            Home
+          </Link>
+          <Link to={"/favorites"}>Favorites</Link>
+        </div>
 
         <div className="ml-auto px-10  flex gap-5 sm:mb-0 mb-4   ">
           {/* Search input field (hidden/shown) */}

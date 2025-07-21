@@ -141,6 +141,7 @@ function App() {
           path="/podcast/:id"
           element={<PodcastDetails data={podcastData} />}
         />
+        <Route path="/favorites" element={<h1>hello</h1>} />
       </Routes>
     </Layout>
   );

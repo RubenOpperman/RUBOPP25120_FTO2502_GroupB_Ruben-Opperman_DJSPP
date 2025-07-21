@@ -42,8 +42,8 @@ export default function Episodes({ season, podcast, seasonImg }) {
               {episode.description}
             </p>
           </div>
-          <div className="ml-auto   flex flex-col h-full">
-            <div className="">heart</div>
+          <div className="ml-auto flex flex-col justify-between">
+            <button>{/**Icon hearts */}</button>
 
             <button
               className=" bg-NavBar-bg  text-white text-sm rounded-lg px-2 py-1"

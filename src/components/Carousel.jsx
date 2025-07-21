@@ -2,11 +2,9 @@ import GetGenreIds from "../utils/getGenreIds";
 import { genres } from "../data/genreData";
 import Genres from "./genres";
 
-import React from "react";
 import Slider from "react-slick";
-import { useEffect, useState } from "react";
-import { Routes, Route, Link } from "react-router-dom";
-import MainContent from "./mainContent";
+
+import { Link } from "react-router-dom";
 
 export default function Carousel({ podcastData }) {
   const recommendedShows = podcastData.filter((podcast) => {

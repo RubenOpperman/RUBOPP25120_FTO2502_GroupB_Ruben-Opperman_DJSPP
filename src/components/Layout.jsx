@@ -1,8 +1,10 @@
 import Navbar from "./header";
 import Filter from "./filter";
 import PageNav from "./PageNav";
-import { useLocation } from "react-router-dom";
 import Carousel from "./Carousel";
+import Favorite from "./Favorite";
+
+import { useLocation } from "react-router-dom";
 
 /**
  * Layout component that conditionally renders navigation, filter, pagination,
@@ -39,13 +41,17 @@ export default function Layout({
 }) {
   const location = useLocation();
   const isDetailPage = location.pathname.startsWith("/podcast/");
+  const isFavoritePage = location.pathname.startsWith("/favorites");
 
   return (
     <>
       {!isDetailPage && <Navbar search={search} onChange={onSearchChange} />}
-      {!isDetailPage && <Carousel podcastData={podcastData} />}
+      {isFavoritePage && <Favorite />}
+      {!isDetailPage && !isFavoritePage && (
+        <Carousel podcastData={podcastData} />
+      )}
 
-      {!isDetailPage && (
+      {!isDetailPage && !isFavoritePage && (
         <Filter
           genre={genre}
           sort={sort}
@@ -53,8 +59,8 @@ export default function Layout({
           genreFilter={onGenreFilter}
         />
       )}
-      {children}
-      {!isDetailPage && (
+      {!isFavoritePage && children}
+      {!isDetailPage && !isFavoritePage && (
         <PageNav
           currentPage={currentPage}
           totalPages={totalPages}

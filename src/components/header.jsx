@@ -41,7 +41,7 @@ export default function Navbar({ onChange, search }) {
     <>
       <nav className="w-full h-[10wh] bg-NavBar-bg  text-Podcast-card flex items-center  font-serif flex-wrap">
         <div>
-          <img src="../src/assets/apple-podcast.svg" alt="podcast icon" />
+          <img src="./apple-podcast.svg" alt="podcast icon" />
         </div>
         <div className="text-2xl p-5 font-bold">PodcastAPP</div>
         <div className="mx-auto ">

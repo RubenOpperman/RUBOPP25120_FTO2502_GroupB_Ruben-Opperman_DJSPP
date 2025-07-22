@@ -67,8 +67,8 @@ export default function Seasons({
         </div>
 
         <Episodes
-          seasonImg={currentSeason.image}
-          season={currentSeason.episodes}
+          episodes={currentSeason.episodes}
+          season={currentSeason}
           podcast={podcast}
         />
       </div>

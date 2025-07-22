@@ -76,7 +76,7 @@ export default function Navbar({ onChange, search }) {
           {/* Search toggle button */}
           <button onClick={() => ToggleSearch()} className="w-10 h-auto ">
             <img
-              src="src/assets/585e4ae1cb11b227491c3393.png"
+              src="./585e4ae1cb11b227491c3393.png"
               alt="search icon"
               className=" cursor-pointer  "
             />

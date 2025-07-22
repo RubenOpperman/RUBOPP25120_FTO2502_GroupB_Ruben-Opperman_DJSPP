@@ -46,7 +46,7 @@ export default function MainContent({
         <div className="flex items-center mb-2">
           <img
             className="w-5 h-5 mr-2"
-            src="src/assets/gray-calendar-25911.svg"
+            src="./gray-calendar-25911.svg"
             alt="Calendar icon"
           />
           <p className="text-sm text-gray-700 font-medium">

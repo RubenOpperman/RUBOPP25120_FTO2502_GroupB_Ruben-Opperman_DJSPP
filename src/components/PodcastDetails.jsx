@@ -52,7 +52,7 @@ export default function PodcastDetail({ data }) {
 
   if (loading) {
     return (
-      <div className="p-6 text-3xl text-center text-Podcast-card">
+      <div className="p-6 text-3xl text-center text-black">
         Loading podcast...
       </div>
     );
@@ -92,11 +92,11 @@ export default function PodcastDetail({ data }) {
         ←
       </Link>
 
-      <div className="flex flex-wrap my-10 border-2 gap-5 p-10 rounded-lg border-gray-400 bg-Podcast-card shadow-lg font-serif">
+      <div className="flex lg:flex-nowrap flex-wrap my-10 border-2 gap-5 p-10 rounded-lg border-gray-400 bg-Podcast-card shadow-lg font-serif">
         <img
           src={podcast.image}
           alt={podcast.title}
-          className="md:w-100 md:h-100 w-60 h-60 object-cover rounded-2xl"
+          className="md:w-80 md:h-80 w-60 h-60 object-cover rounded-2xl"
         />
 
         <div>

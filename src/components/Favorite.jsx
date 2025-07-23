@@ -1,8 +1,11 @@
 import { useState, useEffect } from "react";
+import { useAudio } from "./AudioContext";
+import Heart from "react-heart";
 
 export default function FavouritesPage() {
   const [favourites, setFavourites] = useState([]);
   const [sortBy, setSortBy] = useState("title-asc");
+  const { playEpisode } = useAudio();
 
   useEffect(() => {
     const stored = localStorage.getItem("favourites");
@@ -11,12 +14,44 @@ export default function FavouritesPage() {
     }
   }, []);
 
+  function createFavId(podcast, season, episode) {
+    return `${podcast.id}-S${season.season}-E${episode.episode}`;
+  }
+
+  function isFavourited(podcast, season, episode) {
+    const id = createFavId(podcast, season, episode);
+    return favourites.some((fav) => fav.id === id);
+  }
+
+  function toggleFavourite(podcast, season, episode) {
+    const favId = createFavId(podcast, season, episode);
+    const exists = favourites.find((fav) => fav.id === favId);
+
+    let updated;
+    if (exists) {
+      updated = favourites.filter((fav) => fav.id !== favId);
+    } else {
+      const newFav = {
+        id: favId,
+        podcast,
+        season,
+        episode,
+        addedAt: new Date().toISOString(),
+      };
+      updated = [...favourites, newFav];
+    }
+
+    setFavourites(updated);
+    localStorage.setItem("favourites", JSON.stringify(updated));
+  }
+
   const grouped = favourites.reduce((acc, fav) => {
     const podcastTitle = fav.podcast.title;
     if (!acc[podcastTitle]) {
       acc[podcastTitle] = [];
     }
     acc[podcastTitle].push(fav);
+
     return acc;
   }, {});
 
@@ -28,9 +63,9 @@ export default function FavouritesPage() {
   };
 
   return (
-    <div className="p-6 bg-Background min-h-screen text-white">
+    <div className="p-6 bg-Background min-h-screen text-white font-serif mb-15">
       <h1 className="text-3xl font-bold mb-1">Your Favourites</h1>
-      <p className="text-Podcast-card  mb-5">
+      <p className="text-Podcast-card mb-5">
         Your saved episodes from all shows
       </p>
 
@@ -73,20 +108,43 @@ export default function FavouritesPage() {
                           alt="season cover"
                           className="w-24 h-24 object-cover rounded-lg"
                         />
-                        <div>
+                        <div className="flex-1">
                           <h3 className="text-lg text-Font-primary-color font-bold mb-2">
                             {episode.title}
                           </h3>
                           <p className="text-sm text-Font-primary-color font-bold">
                             Season {season.season} | Episode {episode.episode}
                           </p>
-
                           <p className="text-sm text-Font-primary-color">
                             {episode.description}
                           </p>
                           <p className="text-xs text-secondary-font-color mt-2">
                             Added at: {new Date(addedAt).toLocaleString()}
                           </p>
+                        </div>
+                        <div className="flex flex-col  items-end justify-between">
+                          <button>
+                            <Heart
+                              isActive={isFavourited(podcast, season, episode)}
+                              onClick={() =>
+                                toggleFavourite(podcast, season, episode)
+                              }
+                              animationTrigger="both"
+                              inactiveColor="rgba(255,125,125,.75)"
+                              activeColor="#e019ae"
+                              style={{ width: "30px" }}
+                              animationDuration={0.1}
+                            />
+                          </button>
+
+                          <button
+                            className="bg-NavBar-bg text-white text-sm rounded-lg px-2 py-1 mt-2"
+                            onClick={() =>
+                              playEpisode(episode, season.image, podcast)
+                            }
+                          >
+                            Play
+                          </button>
                         </div>
                       </div>
                     </li>

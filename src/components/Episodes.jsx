@@ -28,16 +28,16 @@ export default function Episodes({ podcast, episodes, season }) {
 
   function isFavourited(episode) {
     return favourites.some(
-      (fav) => fav.id === buildFavId(podcast, season, episode)
+      (fav) => fav.id === createFavId(podcast, season, episode)
     );
   }
 
-  function buildFavId(podcast, season, episode) {
+  function createFavId(podcast, season, episode) {
     return `${podcast.id}-S${season.season}-E${episode.episode}`;
   }
 
   function toggleFavourite(episode) {
-    const favId = buildFavId(podcast, season, episode);
+    const favId = createFavId(podcast, season, episode);
 
     const existing = favourites.find((fav) => fav.id === favId);
 

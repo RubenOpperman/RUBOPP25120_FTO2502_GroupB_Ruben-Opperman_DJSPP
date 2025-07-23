@@ -41,7 +41,7 @@ export default function MainContent({
           />
         </div>
 
-        <h2 className="text-lg font-bold p-1">{title}</h2>
+        <h2 className="text-lg text-black-text  font-bold p-1">{title}</h2>
 
         <div className="flex items-center mb-2">
           <img
@@ -49,7 +49,7 @@ export default function MainContent({
             src="./gray-calendar-25911.svg"
             alt="Calendar icon"
           />
-          <p className="text-sm text-gray-700 font-medium">
+          <p className="text-sm text-secondary-font-color font-medium">
             {seasons} season{seasons !== 1 ? "s" : ""}
           </p>
         </div>
@@ -58,7 +58,7 @@ export default function MainContent({
           <Genres genreList={genreList} />
         </div>
 
-        <p className="text-xs text-gray-500 font-semibold">
+        <p className="text-xs text-secondary-font-color font-semibold">
           Updated: {updateDate}
         </p>
       </div>

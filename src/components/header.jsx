@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
+import ThemeToggle from "./ThemeToggle";
 
 /**
  * Navigation bar component for the Podcast Explorer app.
@@ -39,7 +40,7 @@ export default function Navbar({ onChange, search }) {
 
   return (
     <>
-      <nav className="w-full h-[10wh] bg-NavBar-bg  text-Podcast-card flex items-center  font-serif flex-wrap">
+      <nav className="w-full h-[10wh] dark:bg-black  bg-NavBar-bg  text-white-text flex items-center  font-serif flex-wrap">
         <div>
           <img src="./apple-podcast.svg" alt="podcast icon" />
         </div>
@@ -50,6 +51,7 @@ export default function Navbar({ onChange, search }) {
           </Link>
           <Link to={"/favorites"}>Favorites</Link>
         </div>
+        <ThemeToggle />
 
         <div className="ml-auto px-10  flex gap-5 sm:mb-0 mb-4   ">
           {/* Search input field (hidden/shown) */}

@@ -4,6 +4,7 @@ import "./index.css";
 import App from "./App.jsx";
 import { BrowserRouter } from "react-router-dom";
 import { AudioProvider } from "./components/AudioContext.jsx";
+import { ThemeProvider } from "./components/ThemeContext";
 
 /**
  * Entry point for the React application.
@@ -17,9 +18,11 @@ import { AudioProvider } from "./components/AudioContext.jsx";
 createRoot(document.getElementById("root")).render(
   <StrictMode>
     <AudioProvider>
-      <BrowserRouter>
-        <App />
-      </BrowserRouter>
+      <ThemeProvider>
+        <BrowserRouter>
+          <App />
+        </BrowserRouter>
+      </ThemeProvider>
     </AudioProvider>
   </StrictMode>
 );

@@ -36,7 +36,7 @@ export default function Carousel({ podcastData }) {
 
   return (
     <div className=" h-full bg-Background p-2 shadow-lg font-serif">
-      <h1 className="text-white text-2xl py-2 px-4 rounded-2xl">
+      <h1 className="text-black-text text-3xl py-2 px-4 rounded-2xl">
         Recommended Shows
       </h1>
       <div className="p-10">
@@ -46,7 +46,7 @@ export default function Carousel({ podcastData }) {
 
             return (
               <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
-                <div className="rounded-lg border-2 border-gray-400 md:h-[75vh] h-[60vh] bg-Podcast-card p-2 shadow-lg font-serif px-2">
+                <div className="rounded-lg border-2 border-gray-400 md:h-[75vh]  h-[60vh] bg-Podcast-card p-2 mb-5 shadow-lg font-serif px-2">
                   <div className="p-2">
                     <div className="w-full h-full mx-auto rounded-lg mb-2 overflow-hidden">
                       <img
@@ -56,7 +56,9 @@ export default function Carousel({ podcastData }) {
                       />
                     </div>
 
-                    <h2 className="text-lg font-bold p-1">{podcast.title}</h2>
+                    <h2 className="text-lg text-black-text font-bold p-1">
+                      {podcast.title}
+                    </h2>
 
                     <div className="flex flex-wrap gap-2 mb-2">
                       <Genres genreList={genreList} />

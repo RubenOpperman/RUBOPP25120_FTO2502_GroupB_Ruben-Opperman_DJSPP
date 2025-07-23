@@ -52,7 +52,7 @@ export default function PodcastDetail({ data }) {
 
   if (loading) {
     return (
-      <div className="p-6 text-3xl text-center text-black">
+      <div className="p-6 text-3xl text-center text-black-text">
         Loading podcast...
       </div>
     );
@@ -68,7 +68,7 @@ export default function PodcastDetail({ data }) {
 
   if (!podcast) {
     return (
-      <div className="p-6 text-3xl text-center text-Podcast-card">
+      <div className="p-6 text-3xl text-center text-black-text">
         No podcast data found.
       </div>
     );
@@ -84,15 +84,15 @@ export default function PodcastDetail({ data }) {
   }
 
   return (
-    <div className="p-6 bg-Background pb-25">
+    <div className="p-6 bg-Background pb-25 ">
       <Link
         to="/"
-        className="text-white text-4xl bg-NavBar-bg rounded-full px-4 mb-4 pb-2 pt-1"
+        className="text-white-text text-4xl bg-NavBar-bg rounded-full px-4 mb-4 pb-2 pt-1"
       >
         ←
       </Link>
 
-      <div className="flex lg:flex-nowrap flex-wrap my-10 border-2 gap-5 p-10 rounded-lg border-gray-400 bg-Podcast-card shadow-lg font-serif">
+      <div className="flex lg:flex-nowrap flex-wrap my-10 border-2 gap-5 p-10 rounded-lg border-gray-400 bg-Podcast-card shadow-xl font-serif">
         <img
           src={podcast.image}
           alt={podcast.title}
@@ -101,8 +101,10 @@ export default function PodcastDetail({ data }) {
 
         <div>
           <div className="mb-5">
-            <h1 className="text-3xl font-bold mb-5">{podcast.title}</h1>
-            <p className="text-lg font-medium text-Font-primary-color">
+            <h1 className="text-3xl text-black-text font-bold mb-5">
+              {podcast.title}
+            </h1>
+            <p className="text-lg font-medium text-black-text">
               {podcast.description}
             </p>
           </div>
@@ -116,19 +118,23 @@ export default function PodcastDetail({ data }) {
 
               <div className="flex-wrap mb-4">
                 <p className="text-secondary-font-color">LAST UPDATED</p>
-                <p className="font-bold">
+                <p className="font-bold text-black-text">
                   {new Date(podcast.updated).toLocaleDateString()}
                 </p>
               </div>
 
               <div className="flex-wrap mb-4">
                 <p className="text-secondary-font-color">TOTAL SEASONS</p>
-                <p className="font-bold">{podcast.seasons.length} Seasons</p>
+                <p className="font-bold text-black-text">
+                  {podcast.seasons.length} Seasons
+                </p>
               </div>
 
               <div className="flex-wrap mb-4">
                 <p className="text-secondary-font-color">TOTAL EPISODES</p>
-                <p className="font-bold">{onEpisodeCount} Episodes</p>
+                <p className="font-bold text-black-text">
+                  {onEpisodeCount} Episodes
+                </p>
               </div>
             </div>
           </div>

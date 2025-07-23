@@ -72,10 +72,10 @@ export default function Episodes({ podcast, episodes, season }) {
             alt="cover img"
           />
           <div>
-            <h1 className="mb-2 font-bold text-sm sm:text-lg">
+            <h1 className="mb-2 font-bold text-black-text text-sm sm:text-lg">
               Episode {episode.episode}: {episode.title}
             </h1>
-            <p className="line-clamp-1 sm:text-md text-md font-medium text-Font-primary-color">
+            <p className="line-clamp-1 text-secondary-font-color sm:text-md text-md font-medium ttext-black-text">
               {episode.description}
             </p>
           </div>
@@ -85,15 +85,15 @@ export default function Episodes({ podcast, episodes, season }) {
                 isActive={isFavourited(episode)}
                 onClick={() => toggleFavourite(episode)}
                 animationTrigger="both"
-                inactiveColor="rgba(255,125,125,.75)"
-                activeColor="#e019ae"
+                inactiveColor="rgba(255,0,0,.75)"
+                activeColor="#FF0000"
                 style={{ marginTop: "0", width: "30" }}
                 animationDuration={0.1}
               />
             </button>
 
             <button
-              className="bg-NavBar-bg text-white text-sm rounded-lg px-2 py-1"
+              className="bg-NavBar-bg text-white-text text-sm rounded-lg px-2 py-1"
               onClick={() => playEpisode(episode, season.image, podcast)}
             >
               Play

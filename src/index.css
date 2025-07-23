@@ -2,20 +2,53 @@
 @import "slick-carousel/slick/slick.css";
 @import "slick-carousel/slick/slick-theme.css";
 
-@theme {
-  --color-Moonstone: #5eb1bf;
-  --color-dark-green: #042a2b;
-  --color-white: #fff;
-  --color-plat: #e8e8e8;
-
-  --color-Background: #1f2937;
+:root {
+  --color-Background: #fff;
+  --color-white-text: #fff;
+  --color-black-text: #121212;
+  --color-gray-text: #6a7282;
+  --color-secondary-font-color: #686868;
+  --color-NavBar-bg: #4169e1;
   --color-Podcast-card: #f9fafb;
   --color-Font-primary-color: #1f2937;
+}
 
-  --color-NavBar-bg: #111827;
-  --color-secondary-font-color: #686868;
+.dark {
+  --color-Background: #121212;
+  --color-white-text: #ffffff;
+  --color-black-text: #ffffff;
+  --color-gray-text: #6a7282;
+  --color-secondary-font-color: #cccccc;
+  --color-NavBar-bg: #1a1a2e;
+  --color-Podcast-card: #1f1f1f;
+  --color-Font-primary-color: #eeeeee;
+}
+
+.bg-Background {
+  background-color: var(--color-Background);
+}
+.text-white-text {
+  color: var(--color-white-text);
+}
+.text-black-text {
+  color: var(--color-black-text);
+}
+.bg-NavBar-bg {
+  background-color: var(--color-NavBar-bg);
+}
+.bg-Podcast-card {
+  background-color: var(--color-Podcast-card);
+}
+.text-Font-primary-color {
+  color: var(--color-Font-primary-color);
+}
+.text-secondary-font-color {
+  color: var(--color-secondary-font-color);
 }
 
 .slick-slide > div {
   margin: 0 10px;
+}
+.slick-arrow {
+  background-color: black;
 }

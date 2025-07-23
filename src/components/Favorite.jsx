@@ -63,23 +63,21 @@ export default function FavouritesPage() {
   };
 
   return (
-    <div className="p-6 bg-Background min-h-screen text-white font-serif mb-15">
+    <div className="p-6 bg-Background min-h-screen text-black-text font-serif mb-15">
       <h1 className="text-3xl font-bold mb-1">Your Favourites</h1>
-      <p className="text-Podcast-card mb-5">
-        Your saved episodes from all shows
-      </p>
+      <p className="text-black-text mb-5">Your saved episodes from all shows</p>
 
       {favourites.length === 0 ? (
         <p>You have no favourite episodes yet.</p>
       ) : (
         <>
-          <div className="mb-6">
-            <label className="mr-2 font-semibold" htmlFor="sort">
+          <div className="mb-6 ">
+            <label className="mr-2  font-semibold" htmlFor="sort">
               Sort by:
             </label>
             <select
               id="sort"
-              className="bg-gray-800 text-white border px-2 py-1 rounded"
+              className=" text-black-text bg-Background border px-2  py-1 rounded"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
             >
@@ -100,7 +98,7 @@ export default function FavouritesPage() {
                   .map(({ episode, season, podcast, addedAt }) => (
                     <li
                       key={`${podcast.id}-S${season.season}-E${episode.episode}`}
-                      className="border border-gray-500 rounded-lg p-4 bg-Podcast-card"
+                      className="border-2 border-gray-400 rounded-lg p-4 bg-Podcast-card"
                     >
                       <div className="flex gap-4 items-start">
                         <img
@@ -109,13 +107,13 @@ export default function FavouritesPage() {
                           className="w-24 h-24 object-cover rounded-lg"
                         />
                         <div className="flex-1">
-                          <h3 className="text-lg text-Font-primary-color font-bold mb-2">
+                          <h3 className="text-lg text-black-text font-bold mb-2">
                             {episode.title}
                           </h3>
-                          <p className="text-sm text-Font-primary-color font-bold">
+                          <p className="text-sm text-black-text font-bold">
                             Season {season.season} | Episode {episode.episode}
                           </p>
-                          <p className="text-sm text-Font-primary-color">
+                          <p className="text-sm text-black-text">
                             {episode.description}
                           </p>
                           <p className="text-xs text-secondary-font-color mt-2">
@@ -130,15 +128,15 @@ export default function FavouritesPage() {
                                 toggleFavourite(podcast, season, episode)
                               }
                               animationTrigger="both"
-                              inactiveColor="rgba(255,125,125,.75)"
-                              activeColor="#e019ae"
+                              inactiveColor="rgba(255,0,0,.75)"
+                              activeColor="#FF0000"
                               style={{ width: "30px" }}
                               animationDuration={0.1}
                             />
                           </button>
 
                           <button
-                            className="bg-NavBar-bg text-white text-sm rounded-lg px-2 py-1 mt-2"
+                            className="bg-NavBar-bg text-white-text text-sm rounded-lg px-2 py-1 mt-2"
                             onClick={() =>
                               playEpisode(episode, season.image, podcast)
                             }

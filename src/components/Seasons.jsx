@@ -24,10 +24,10 @@ export default function Seasons({
 
   return (
     <div>
-      <div className="flex flex-wrap">
-        <div className="text-white text-3xl mb-5">Current Season</div>
+      <div className="flex flex-wrap ">
+        <div className="text-black-text text-3xl mb-5">Current Season</div>
 
-        <form className="pr-10 sm:ml-auto ml-auto">
+        <form className="pr-10 text-black-text sm:ml-auto ml-auto">
           <select
             name="season"
             id="season"
@@ -44,19 +44,19 @@ export default function Seasons({
         </form>
       </div>
 
-      <div className="border-gray-400 border-2 rounded-xl bg-Podcast-card shadow-lg">
+      <div className="border-gray-400 border-2 rounded-xl bg-Podcast-card shadow-xl">
         <div className="p-4 flex flex-wrap sm:flex-nowrap rounded-lg font-serif gap-4 mb-10">
           <img
             src={currentSeason.image}
             alt="podcast img"
-            className="w-[10vw] rounded-2xl object-cover shrink-0 min-w-25"
+            className="w-[10vw]  rounded-2xl object-cover shrink-0 min-w-25"
           />
 
           <div>
-            <h1 className="font-bold text-xl mb-3">
+            <h1 className="font-bold text-black-text text-xl mb-3">
               Season {selectedSeason}: {currentSeason.title}
             </h1>
-            <p className="line-clamp-1 sm:text-lg text-md text-Font-primary-color mb-3">
+            <p className="line-clamp-1 sm:text-lg text-md text-secondary-font-color mb-3">
               {podcast.description}
             </p>
             <div className="flex gap-10 text-secondary-font-color text-md font-medium">

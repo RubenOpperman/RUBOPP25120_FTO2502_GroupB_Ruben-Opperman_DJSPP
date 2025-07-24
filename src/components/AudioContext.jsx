@@ -60,7 +60,6 @@ export function AudioProvider({ children }) {
       {children}
       {currentEpisode && (
         <div className="fixed bottom-0 left-0 w-full border-t-2 border-gray-400 bg-Background text-black-text px-4 py-2 font-serif h-24 flex items-center justify-between z-50">
-          {/* Episode Info */}
           <div className="flex items-center gap-4">
             <img
               className="w-14 h-14 rounded-xl"

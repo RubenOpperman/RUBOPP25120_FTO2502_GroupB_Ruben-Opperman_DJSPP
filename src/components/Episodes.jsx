@@ -2,19 +2,6 @@ import { useAudio } from "./AudioContext";
 import Heart from "react-heart";
 import { useState, useEffect } from "react";
 
-/**
- * Episodes Component
- *
- * Displays a list of episodes for a selected season, including episode titles,
- * descriptions, and a shared season image thumbnail.
- *
- * @component
- * @param {Object} props - Component props
- * @param {Array<Object>} props.episodes - An array of episode objects for the selected season.
- * @param {Object} props.podcast - The podcast object the season belongs to.
- *
- * @returns {JSX.Element}
- */
 export default function Episodes({ podcast, episodes, season }) {
   const { playEpisode } = useAudio();
   const [favourites, setFavourites] = useState([]);

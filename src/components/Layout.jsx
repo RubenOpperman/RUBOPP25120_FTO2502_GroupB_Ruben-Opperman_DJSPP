@@ -2,7 +2,6 @@ import Navbar from "./header";
 import Filter from "./filter";
 import PageNav from "./PageNav";
 import Carousel from "./Carousel";
-import Favorite from "./Favorite";
 
 import { useLocation } from "react-router-dom";
 
@@ -46,11 +45,9 @@ export default function Layout({
   return (
     <>
       {!isDetailPage && <Navbar search={search} onChange={onSearchChange} />}
-      {isFavoritePage && <Favorite />}
       {!isDetailPage && !isFavoritePage && (
         <Carousel podcastData={podcastData} />
       )}
-
       {!isDetailPage && !isFavoritePage && (
         <Filter
           genre={genre}
@@ -59,7 +56,7 @@ export default function Layout({
           genreFilter={onGenreFilter}
         />
       )}
-      {!isFavoritePage && children}
+      {children}
       {!isDetailPage && !isFavoritePage && (
         <PageNav
           currentPage={currentPage}

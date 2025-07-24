@@ -10,13 +10,8 @@ import { fetchPodcastData } from "./data/podcastData";
 import GetGenreIds from "./utils/getGenreIds";
 import "./App.css";
 
-/**
- * Main App component that fetches podcast data, manages search, filtering,
- * sorting, and pagination. Renders the Layout with navigation, filtering,
- * and page navigation controls and sets up routing for podcast list and details.
- *
- * @returns {JSX.Element} The rendered application.
- */
+import FavoritePage from "./components/Favorite";
+
 function App() {
   const [podcastData, setPodcastData] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -26,47 +21,26 @@ function App() {
   const [currentPage, setCurrentPage] = useState(1);
   const itemsPerPage = 8;
 
-  /**
-   * Updates the search query state and resets pagination to page 1.
-   * @param {string} data - The new search string.
-   */
   const handleNavChange = (data) => {
     setSearch(data);
     setCurrentPage(1);
   };
 
-  /**
-   * Updates the genre filter state and resets pagination to page 1.
-   * @param {string} data - The selected genre filter.
-   */
   const handleGenreFilter = (data) => {
     setGenre(data);
     setCurrentPage(1);
   };
 
-  /**
-   * Updates the sort order state and resets pagination to page 1.
-   * @param {string} data - The selected sort option.
-   */
   const handleSort = (data) => {
     setSort(data);
     setCurrentPage(1);
   };
 
-  /**
-   * Goes to the previous page, but does not go below page 1.
-   */
   const prevBtn = () => setCurrentPage((prev) => Math.max(prev - 1, 1));
 
-  /**
-   * Goes to the next page, but does not exceed the total number of pages.
-   */
   const nextBtn = () =>
     setCurrentPage((prev) => Math.min(prev + 1, totalPages));
 
-  /**
-   * Fetches podcast data on component mount, toggling loading state.
-   */
   useEffect(() => {
     async function getData() {
       setIsLoading(true);
@@ -142,6 +116,7 @@ function App() {
           path="/podcast/:id"
           element={<PodcastDetails data={podcastData} />}
         />
+        <Route path="/favorites" element={<FavoritePage />} />
       </Routes>
     </Layout>
   );

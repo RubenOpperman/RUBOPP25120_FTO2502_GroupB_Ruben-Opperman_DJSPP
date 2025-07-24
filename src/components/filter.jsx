@@ -1,24 +1,9 @@
-/**
- * Filter component for selecting podcast genre and sort order.
- *
- * @param {Object} props - Component props.
- * @param {(selectedGenre: string) => void} props.genreFilter - Callback function called when a genre is selected.
- * @param {(selectedSort: string) => void} props.onSortChange - Callback function called when a sort option is selected.
- * @param {string} props.sort - Current selected sort value.
- * @param {string} props.genre - Current selected genre value.
- *
- * @returns {JSX.Element} The rendered Filter component.
- */
 export default function Filter({ genreFilter, onSortChange, sort, genre }) {
   const handleGenrePicked = (e) => {
     const selectedGenre = e.target.value;
     genreFilter(selectedGenre);
   };
 
-  /**
-   * Handles the change event for sort selection and calls the parent callback.
-   * @param {React.ChangeEvent<HTMLSelectElement>} e - The change event from the sort select element.
-   */
   const handleSortPicked = (e) => {
     const selectedSort = e.target.value;
     onSortChange(selectedSort);
@@ -30,7 +15,6 @@ export default function Filter({ genreFilter, onSortChange, sort, genre }) {
         Filter by:
       </h3>
 
-      {/* Genre Filter */}
       <form
         onSubmit={(event) => event.preventDefault()}
         className="border-2 flex wrap bg-background   text-black-text py-2 px-4 rounded-2xl"
@@ -58,7 +42,6 @@ export default function Filter({ genreFilter, onSortChange, sort, genre }) {
         </select>
       </form>
 
-      {/* Sort Filter */}
       <form
         onSubmit={(event) => event.preventDefault()}
         className="border-2 bg-background  text-black-text   py-2 px-4 rounded-2xl"

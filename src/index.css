@@ -55,4 +55,27 @@
 }
 .slick-arrow {
   background-color: black;
+  border-radius: 100%;
+  transform: none !important;
+  transition: none !important;
+}
+
+.slick-arrow:hover {
+  background-color: var(--color-black-text) !important;
+  filter: none !important;
+  box-shadow: none !important;
+  opacity: 1 !important;
+
+  transform: none !important;
+  transition: none !important;
+}
+
+.slick-arrow:hover,
+.slick-arrow:focus,
+.slick-arrow:active {
+  background-color: black !important;
+  color: white !important;
+  box-shadow: none !important;
+  transform: none !important;
+  outline: none !important;
 }

@@ -1,16 +1,5 @@
-import React from "react";
 import Episodes from "./Episodes";
 
-/**
- * Seasons component displays seasons and lets the user choose one from a dropdown.
- *
- * @param {Object} props - Component props.
- * @param {Object} props.podcast - Podcast object with seasons.
- * @param {number} props.selectedSeason - Currently selected season number.
- * @param {(season: number) => void} props.setSelectedSeason - Setter for selected season.
- *
- * @returns {JSX.Element} The rendered Seasons component.
- */
 export default function Seasons({
   podcast,
   selectedSeason,

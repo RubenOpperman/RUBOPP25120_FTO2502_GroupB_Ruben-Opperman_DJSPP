@@ -31,12 +31,12 @@ export default function MainContent({
   const genreList = GetGenreIds(genreIds, genres);
 
   return (
-    <div className="rounded-lg border-2 border-gray-400 h-full bg-Podcast-card p-2 shadow-lg font-serif ">
+    <div className=" hover:scale-101 transition-all duration-150 rounded-lg border-2 border-gray-400 h-full bg-Podcast-card p-2 shadow-lg font-serif ">
       <div className="p-2">
         <div className="w-full h-full mx-auto rounded-lg mb-2 overflow-hidden">
           <img
             src={image}
-            className="w-full h-full object-cover block rounded-2xl"
+            className="w-[80%] h-[80%] mx-auto object-cover block rounded-2xl"
             alt={`Cover for ${title}`}
           />
         </div>

@@ -64,7 +64,7 @@ export default function Episodes({ podcast, episodes, season }) {
       {episodes.map((episode) => (
         <div
           key={episode.episode}
-          className="mb-4 mt-2 border-2 p-2 m-5 flex sm:flex-nowrap flex-wrap gap-2 rounded-lg border-gray-400 bg-Podcast-card shadow-lg font-serif"
+          className=" hover:scale-101 transition-all duration-150 mb-4 mt-2 border-2 p-2 m-5 flex sm:flex-nowrap flex-wrap gap-2 rounded-lg border-gray-400 bg-Podcast-card shadow-lg font-serif"
         >
           <img
             className="w-[7vw] rounded-xl object-cover"
@@ -93,7 +93,7 @@ export default function Episodes({ podcast, episodes, season }) {
             </button>
 
             <button
-              className="bg-NavBar-bg text-white-text text-sm rounded-lg px-2 py-1"
+              className=" hover:scale-110 transition-all duration-300 bg-NavBar-bg text-white-text text-sm rounded-lg px-2 py-1"
               onClick={() => playEpisode(episode, season.image, podcast)}
             >
               Play

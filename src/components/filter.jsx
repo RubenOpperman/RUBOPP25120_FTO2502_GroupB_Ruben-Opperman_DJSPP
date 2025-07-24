@@ -41,7 +41,7 @@ export default function Filter({ genreFilter, onSortChange, sort, genre }) {
           name="genre"
           id="genre"
           value={genre}
-          className="outline-none bg-Background  cursor-pointer"
+          className=" outline-none bg-Background  cursor-pointer"
         >
           <option value="">ALL</option>
           <option value="Personal Growth">Personal Growth</option>

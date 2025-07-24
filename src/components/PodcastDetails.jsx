@@ -40,8 +40,8 @@ export default function PodcastDetail({ data }) {
         setOnEpisodeCount(count);
         setPodcast(data);
         setSelectedSeason(data.seasons[0]?.season);
-      } catch (err) {
-        setError(err.message);
+      } catch (error) {
+        setError(error.message);
       } finally {
         setLoading(false);
       }
@@ -52,7 +52,7 @@ export default function PodcastDetail({ data }) {
 
   if (loading) {
     return (
-      <div className="p-6 text-3xl text-center text-black-text">
+      <div className="p-6 text-5xl h-screen text-center pt-20 text-black-text bg-Background">
         Loading podcast...
       </div>
     );
@@ -60,7 +60,7 @@ export default function PodcastDetail({ data }) {
 
   if (error) {
     return (
-      <div className="p-6 text-3xl text-center text-red-500">
+      <div className="p-6 text-5xl h-screen text-center text-red-500">
         Error: {error}
       </div>
     );
@@ -68,7 +68,7 @@ export default function PodcastDetail({ data }) {
 
   if (!podcast) {
     return (
-      <div className="p-6 text-3xl text-center text-black-text">
+      <div className="p-6 text-5xl h-screen text-center text-black-text">
         No podcast data found.
       </div>
     );
@@ -84,10 +84,10 @@ export default function PodcastDetail({ data }) {
   }
 
   return (
-    <div className="p-6 bg-Background pb-25 ">
+    <div className=" p-6 bg-Background pb-25 ">
       <Link
         to="/"
-        className="text-white-text text-4xl bg-NavBar-bg rounded-full px-4 mb-4 pb-2 pt-1"
+        className="  text-white-text text-4xl bg-NavBar-bg rounded-full px-4 mb-4 pb-2 pt-1"
       >
         ←
       </Link>

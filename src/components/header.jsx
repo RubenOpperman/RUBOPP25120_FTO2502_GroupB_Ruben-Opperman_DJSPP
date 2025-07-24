@@ -40,23 +40,22 @@ export default function Navbar({ onChange, search }) {
 
   return (
     <>
-      <nav className="w-full h-[10wh] dark:bg-black  bg-NavBar-bg  text-white-text flex items-center  font-serif flex-wrap">
+      <nav className="w-full h-[10wh] gap-5 dark:bg-black  bg-NavBar-bg  text-white-text flex items-center border-b-4 border-color font-serif flex-wrap">
         <div>
           <img src="./apple-podcast.svg" alt="podcast icon" />
         </div>
         <div className="text-2xl p-5 font-bold">PodcastAPP</div>
-        <div className="mx-auto ">
+        <div className="mx-auto  ">
           <Link to={"/"} className="mr-3">
             Home
           </Link>
           <Link to={"/favorites"}>Favorites</Link>
         </div>
-        <ThemeToggle />
 
-        <div className="ml-auto px-10  flex gap-5 sm:mb-0 mb-4   ">
+        <div className=" ml-auto px-10  flex gap-5 sm:mb-0 mb-4 flex-wrap   ">
           {/* Search input field (hidden/shown) */}
           <div
-            className={`border-2 border-white  rounded-2xl py-1 px-2 ${
+            className={`border-2 border-white   rounded-2xl py-1 px-2 ${
               !searchBar ? "hidden" : null
             }  `}
           >
@@ -71,7 +70,7 @@ export default function Navbar({ onChange, search }) {
                 id="search"
                 type="text"
                 placeholder="search podcast title"
-                className="outline-none cursor-pointer"
+                className="outline-none  w-[10vw] cursor-pointer"
               />
             </form>
           </div>
@@ -83,6 +82,7 @@ export default function Navbar({ onChange, search }) {
               className=" cursor-pointer  "
             />
           </button>
+          <ThemeToggle />
         </div>
       </nav>
     </>

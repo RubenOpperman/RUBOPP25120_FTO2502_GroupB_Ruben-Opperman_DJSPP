@@ -11,19 +11,23 @@
   --color-NavBar-bg: #4169e1;
   --color-Podcast-card: #f9fafb;
   --color-Font-primary-color: #1f2937;
+  --color-border-color: #384fd1;
 }
 
 .dark {
-  --color-Background: #121212;
+  --color-Background: #1f1f1f;
   --color-white-text: #ffffff;
   --color-black-text: #ffffff;
   --color-gray-text: #6a7282;
   --color-secondary-font-color: #cccccc;
-  --color-NavBar-bg: #1a1a2e;
-  --color-Podcast-card: #1f1f1f;
+  --color-NavBar-bg: #00308f;
+  --color-Podcast-card: #121212;
   --color-Font-primary-color: #eeeeee;
+  --color-border-color: #162456;
 }
-
+.border-color {
+  border-color: var(--color-border-color);
+}
 .bg-Background {
   background-color: var(--color-Background);
 }

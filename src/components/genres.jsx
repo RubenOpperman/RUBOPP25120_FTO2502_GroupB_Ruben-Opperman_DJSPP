@@ -12,7 +12,7 @@ export default function Genres(props) {
       {props.genreList.map((genre, index) => (
         <span
           key={index}
-          className="bg-gray-200 font-bold  text-gray-800 px-3 py-1 rounded-full text-sm  m-1"
+          className=" hover:scale-110 transition-all duration-200 bg-gray-200 font-bold  text-gray-800 px-3 py-1 rounded-full text-sm  m-1"
         >
           {genre}
         </span>

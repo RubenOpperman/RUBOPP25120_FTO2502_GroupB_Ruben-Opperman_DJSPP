@@ -16,7 +16,7 @@ export default function MainContent({
   const genreList = GetGenreIds(genreIds, genres);
 
   return (
-    <div className=" hover:scale-101 transition-all duration-150 rounded-lg border-2 border-gray-400 h-full bg-Podcast-card p-2 shadow-lg font-serif ">
+    <div className=" hover:scale-105 transition-all duration-150 rounded-lg border-2 border-gray-400 h-full bg-Podcast-card p-2 shadow-lg font-serif ">
       <div className="p-2">
         <div className="w-full h-full mx-auto rounded-lg mb-2 overflow-hidden">
           <img

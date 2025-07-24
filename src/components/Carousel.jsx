@@ -35,7 +35,7 @@ export default function Carousel({ podcastData }) {
   };
 
   return (
-    <div className=" h-full bg-Background p-2 shadow-lg font-serif ">
+    <div className=" h-full  bg-Background p-2 shadow-lg font-serif ">
       <h1 className="text-black-text text-3xl py-2 px-4 rounded-2xl">
         Recommended Shows
       </h1>
@@ -46,7 +46,7 @@ export default function Carousel({ podcastData }) {
 
             return (
               <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
-                <div className=" hover:scale-105 transition-all duration-300 mt-3 rounded-lg border-2 border-gray-400  sm:h-100 bg-Podcast-card p-2 mb-5 shadow-lg font-serif px-2">
+                <div className=" hover:scale-105 transition-all duration-300 mt-3 p rounded-lg border-2 border-gray-400 h-100 xl:h-140  sm:h-110 bg-Podcast-card p-2 mb-5 shadow-lg font-serif px-2">
                   <div className="p-2">
                     <div className="w-full h-full mx-auto rounded-lg mb-2 overflow-hidden">
                       <img

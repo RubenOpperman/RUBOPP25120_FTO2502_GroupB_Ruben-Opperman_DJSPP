@@ -9,6 +9,7 @@ import { genres } from "./data/genreData";
 import { fetchPodcastData } from "./data/podcastData";
 import GetGenreIds from "./utils/getGenreIds";
 import "./App.css";
+
 /**
  * Main App component that fetches podcast data, manages search, filtering,
  * sorting, and pagination. Renders the Layout with navigation, filtering,
@@ -119,7 +120,7 @@ function App() {
           path="/"
           element={
             isLoading ? (
-              <div className="fixed inset-0 flex justify-center items-center bg-white z-50">
+              <div className="fixed inset-0 flex justify-center items-center bg-Background text-black-text z-50">
                 <div className="text-xl font-bold animate-pulse">
                   Loading Podcasts...
                 </div>
@@ -141,7 +142,6 @@ function App() {
           path="/podcast/:id"
           element={<PodcastDetails data={podcastData} />}
         />
-        <Route path="/favorites" element={<h1>hello</h1>} />
       </Routes>
     </Layout>
   );

@@ -120,30 +120,30 @@ export default function FavouritesPage() {
                             Added at: {new Date(addedAt).toLocaleString()}
                           </p>
                         </div>
-                        <div className="flex flex-col  items-end justify-between">
-                          <button>
-                            <Heart
-                              isActive={isFavourited(podcast, season, episode)}
-                              onClick={() =>
-                                toggleFavourite(podcast, season, episode)
-                              }
-                              animationTrigger="both"
-                              inactiveColor="rgba(255,0,0,.75)"
-                              activeColor="#FF0000"
-                              style={{ width: "30px" }}
-                              animationDuration={0.1}
-                            />
-                          </button>
-
-                          <button
-                            className="bg-NavBar-bg text-white-text text-sm rounded-lg px-2 py-1 mt-2"
+                      </div>
+                      <div className="flex items-end justify-between">
+                        <button>
+                          <Heart
+                            isActive={isFavourited(podcast, season, episode)}
                             onClick={() =>
-                              playEpisode(episode, season.image, podcast)
+                              toggleFavourite(podcast, season, episode)
                             }
-                          >
-                            Play
-                          </button>
-                        </div>
+                            animationTrigger="both"
+                            inactiveColor="rgba(255,0,0,.75)"
+                            activeColor="#FF0000"
+                            style={{ width: "30px" }}
+                            animationDuration={0.1}
+                          />
+                        </button>
+
+                        <button
+                          className="bg-NavBar-bg hover:scale-110 transition-all duration-150  text-white-text text-sm rounded-lg  px-2 py-1 mt-2 "
+                          onClick={() =>
+                            playEpisode(episode, season.image, podcast)
+                          }
+                        >
+                          Play
+                        </button>
                       </div>
                     </li>
                   ))}

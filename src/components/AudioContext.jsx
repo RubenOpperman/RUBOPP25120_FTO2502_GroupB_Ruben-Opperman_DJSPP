@@ -59,7 +59,7 @@ export function AudioProvider({ children }) {
     <AudioContext.Provider value={{ currentEpisode, playEpisode, audioRef }}>
       {children}
       {currentEpisode && (
-        <div className="fixed bottom-0 left-0 w-full border-t-2 transition-all duration-300 border-gray-400 bg-Background text-black-text px-4 py-2 font-serif h-24 flex items-center justify-between z-50">
+        <div className="fixed bottom-0 left-0 w-full border-t-2 transition-all duration-300 border-gray-400 bg-Podcast-card text-black-text px-4 py-2 font-serif h-24 flex items-center justify-between z-50">
           <div className="flex items-center gap-4">
             <img
               className="sm:w-14 sm:h-14 w-5 h-5 rounded-xl"

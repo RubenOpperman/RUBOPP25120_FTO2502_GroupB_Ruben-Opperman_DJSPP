@@ -2,7 +2,11 @@
 
 **Podcast Explorer** is a responsive web application built with **React**, **Vanilla JavaScript**, **TailwindCSS**, and **HTML5**.
 
-It allows users to browse, filter, sort, and search podcasts fetched from an external API, with a modern UI and smooth loading experience. You can also click on a podcast to view its details such as seasons, episodes, and other information. If you return to the main view, all filters remain **persistent** — no need to reapply them.
+It allows users to browse, filter, sort, and search podcasts fetched from an external API, all within a modern and responsive UI with smooth loading transitions. Users can click on a podcast to view detailed information, including its seasons and episodes. Returning to the main view retains all filters and sorting preferences, ensuring a seamless user experience.
+
+The app features a built-in audio player that lets you play episodes and skip to any point using an interactive progress bar, which remains accessible throughout the application. You can favorite episodes and manage them from a dedicated Favorites page, where you can also unfavorite them at any time.
+
+A visually engaging recommended carousel allows users to browse featured podcasts. Additionally, the app includes full support for both light and dark themes, toggleable at any time.
 
 ---
 
@@ -20,7 +24,7 @@ It allows users to browse, filter, sort, and search podcasts fetched from an ext
 - ✅ **Audio player** with playback controls
 - ✅ Add/remove episodes to **Favorites**
 - ✅ View grouped episodes on the **Favorites** page
-- ✅ LocalStorage persistence for favorites
+- ✅ LocalStorage persistence for favorites and themes
 - ✅ Toggle between **Light/Dark** themes
 - ✅ **Animated search bar** with toggle button
 

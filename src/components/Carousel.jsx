@@ -35,11 +35,11 @@ export default function Carousel({ podcastData }) {
   };
 
   return (
-    <div className=" h-full  bg-Background p-2 shadow-lg font-serif ">
-      <h1 className="text-black-text text-3xl py-2 px-4 rounded-2xl">
+    <div className=" h-full  bg-Background p-2 transition-all duration-300 shadow-lg font-serif ">
+      <h1 className="text-black-text text-3xl pt-2 px-4 transition-all duration-300 rounded-2xl">
         Recommended Shows
       </h1>
-      <div className="p-10">
+      <div className="p-10 ">
         <Slider {...settings}>
           {recommendedShows.slice(0, 8).map((podcast) => {
             const genreList = GetGenreIds(podcast.genres, genres);
@@ -47,7 +47,7 @@ export default function Carousel({ podcastData }) {
             return (
               <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
                 <div className=" hover:scale-105 transition-all duration-300 mt-3 p rounded-lg border-2 border-gray-400 h-100 xl:h-140  sm:h-110 bg-Podcast-card p-2 mb-5 shadow-lg font-serif px-2">
-                  <div className="p-2">
+                  <div className="p-2 transition-all duration-300">
                     <div className="w-full h-full mx-auto rounded-lg mb-2 overflow-hidden">
                       <img
                         src={podcast.image}
@@ -56,7 +56,7 @@ export default function Carousel({ podcastData }) {
                       />
                     </div>
 
-                    <h2 className="text-lg text-black-text font-bold p-1">
+                    <h2 className="text-lg text-black-text transition-all duration-300 font-bold p-1">
                       {podcast.title}
                     </h2>
 

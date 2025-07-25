@@ -101,7 +101,7 @@ function App() {
               </div>
             ) : (
               <>
-                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-Background">
+                <div className="grid transition-all duration-300  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 p-4 bg-Background">
                   {currentItems.map((podcast) => (
                     <Link key={podcast.id} to={`/podcast/${podcast.id}`}>
                       <MainContent {...podcast} />
@@ -117,6 +117,14 @@ function App() {
           element={<PodcastDetails data={podcastData} />}
         />
         <Route path="/favorites" element={<FavoritePage />} />
+        <Route
+          path="*"
+          element={
+            <h1 className="text-red-500 text-3xl text-center">
+              404 - Page Not Found
+            </h1>
+          }
+        />
       </Routes>
     </Layout>
   );

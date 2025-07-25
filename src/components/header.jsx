@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
 export default function Navbar({ onChange, search }) {
@@ -19,23 +19,43 @@ export default function Navbar({ onChange, search }) {
 
   return (
     <>
-      <nav className="w-full h-[10wh] gap-5 dark:bg-black  bg-NavBar-bg  text-white-text flex items-center border-b-4 border-color font-serif flex-wrap">
-        <div>
-          <img src="./apple-podcast.svg" alt="podcast icon" />
+      <nav className="w-full h-[10wh] gap-5 py-2  transition-all duration-300 bg-NavBar-bg  text-white-text flex  items-center border-b-4 border-color font-serif flex-wrap">
+        <div className="flex items-center">
+          <div>
+            <img src="./apple-podcast.svg" alt="podcast icon" />
+          </div>
+          <div className="text-2xl p-5 font-bold">PodcastAPP</div>
         </div>
-        <div className="text-2xl p-5 font-bold">PodcastAPP</div>
-        <div className="mx-auto  ">
-          <Link to={"/"} className="mr-3">
+        <div className="mr-auto px-10 ">
+          <NavLink
+            to={"/"}
+            className={({ isActive }) =>
+              `text-white-text font-medium transition-all duration-200 px-3 py-1 rounded-md hover:text-gray-300 hover:bg-white/10 ${
+                isActive ? "underline underline-offset-4" : ""
+              }`
+            }
+          >
             Home
-          </Link>
-          <Link to={"/favorites"}>Favorites</Link>
+          </NavLink>
+          <NavLink
+            to={"/favorites"}
+            className={({ isActive }) =>
+              `text-white-text font-medium transition-all duration-200 px-3 py-1 rounded-md hover:text-gray-300 hover:bg-white/10 ${
+                isActive ? "underline underline-offset-4" : ""
+              }`
+            }
+          >
+            Favorites
+          </NavLink>
         </div>
 
-        <div className=" ml-auto px-10  flex gap-5 sm:mb-0 mb-4 flex-wrap   ">
+        <div className={`  px-10  flex gap-5 sm:mb-0 mb-4 flex-wrap  `}>
           <div
-            className={`border-2 border-white   rounded-2xl py-1 px-2 ${
-              !searchBar ? "hidden" : null
-            }  `}
+            className={`transition-all duration-300 transform origin-right border-2 border-white rounded-2xl py-1 px-2 ${
+              searchBar
+                ? "opacity-100 scale-100"
+                : "opacity-0 scale-0 pointer-events-none"
+            }`}
           >
             <form
               onSubmit={(event) => {
@@ -48,7 +68,7 @@ export default function Navbar({ onChange, search }) {
                 id="search"
                 type="text"
                 placeholder="search podcast title"
-                className="outline-none w-[13vw] cursor-pointer"
+                className="outline-none w-[25vw] cursor-pointer"
               />
             </form>
           </div>

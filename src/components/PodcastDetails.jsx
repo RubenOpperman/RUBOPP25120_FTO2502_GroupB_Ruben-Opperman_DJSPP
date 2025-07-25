@@ -96,15 +96,15 @@ export default function PodcastDetail({ data }) {
         <img
           src={podcast.image}
           alt={podcast.title}
-          className="md:w-80 md:h-80 w-60 h-60 object-cover rounded-2xl"
+          className="md:w-80 md:h-80 w-50 h-50 object-cover rounded-2xl"
         />
 
         <div>
           <div className="mb-5">
-            <h1 className="text-3xl text-black-text font-bold mb-5">
+            <h1 className="sm:text-3xl text-xl text-black-text font-bold mb-5">
               {podcast.title}
             </h1>
-            <p className="text-lg font-medium text-black-text">
+            <p className="sm:text-lg text-md font-medium text-black-text">
               {podcast.description}
             </p>
           </div>

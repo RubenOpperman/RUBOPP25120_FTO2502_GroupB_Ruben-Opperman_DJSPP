@@ -51,10 +51,10 @@ export default function Episodes({ podcast, episodes, season }) {
       {episodes.map((episode) => (
         <div
           key={episode.episode}
-          className=" hover:scale-101 transition-all duration-150 mb-4 mt-2 border-2 p-2 m-5 flex sm:flex-nowrap flex-wrap gap-2 rounded-lg border-gray-400 bg-Podcast-card shadow-lg font-serif"
+          className=" hover:scale-101 transition-all duration-150 mb-4 mt-2 border-2 p-2 m-5 flex sm:flex-nowrap gap-2 rounded-lg border-gray-400 bg-Podcast-card shadow-lg font-serif"
         >
           <img
-            className="w-[7vw] rounded-xl object-cover"
+            className=" w-10vw sm:w-[7vw] h-[5vh] sm:h-auto rounded-xl  object-cover"
             src={season.image}
             alt="cover img"
           />
@@ -66,8 +66,8 @@ export default function Episodes({ podcast, episodes, season }) {
               {episode.description}
             </p>
           </div>
-          <div className="ml-auto flex flex-col justify-between items-end">
-            <button>
+          <div className="ml-auto flex flex-col justify-between items-center gap-2">
+            <button className="">
               <Heart
                 isActive={isFavourited(episode)}
                 onClick={() => toggleFavourite(episode)}

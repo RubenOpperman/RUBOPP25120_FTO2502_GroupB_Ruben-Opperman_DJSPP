@@ -16,12 +16,12 @@ export default function MainContent({
   const genreList = GetGenreIds(genreIds, genres);
 
   return (
-    <div className=" hover:scale-105 transition-all duration-150 rounded-lg border-2 border-gray-400 h-full bg-Podcast-card p-2 shadow-lg font-serif ">
-      <div className="p-2">
+    <div className=" hover:scale-105 transition-all duration-300 rounded-lg border-2 border-gray-400 h-full bg-Podcast-card p-2 shadow-lg font-serif ">
+      <div className="p-2 transition-all duration-300">
         <div className="w-full h-full mx-auto rounded-lg mb-2 overflow-hidden">
           <img
             src={image}
-            className="w-[80%] h-[80%] mx-auto object-cover block rounded-2xl"
+            className="w-[50%] h-[50%]  sm:w-[80%] sm:h-[80%] object-cover block rounded-2xl"
             alt={`Cover for ${title}`}
           />
         </div>
@@ -39,7 +39,7 @@ export default function MainContent({
           </p>
         </div>
 
-        <div className="flex flex-wrap gap-2 mb-2">
+        <div className="flex  flex-wrap gap-2 mb-2">
           <Genres genreList={genreList} />
         </div>
 

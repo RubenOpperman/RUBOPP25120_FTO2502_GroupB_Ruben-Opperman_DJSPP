@@ -62,7 +62,7 @@ export function AudioProvider({ children }) {
         <div className="fixed bottom-0 left-0 w-full border-t-2 border-gray-400 bg-Background text-black-text px-4 py-2 font-serif h-24 flex items-center justify-between z-50">
           <div className="flex items-center gap-4">
             <img
-              className="w-14 h-14 rounded-xl"
+              className="sm:w-14 sm:h-14 w-5 h-5 rounded-xl"
               src={currentSeasonImg}
               alt="season cover"
             />
@@ -70,7 +70,7 @@ export function AudioProvider({ children }) {
               <h4 className="font-bold text-md truncate w-40">
                 {currentEpisode.title}
               </h4>
-              <p className="text-secondary-font-color text-sm truncate w-40">
+              <p className="text-secondary-font-color sm:text-sm text-xs truncate w-40">
                 {currentPodcast.title}
               </p>
             </div>
@@ -91,7 +91,7 @@ export function AudioProvider({ children }) {
                   }
                   setIsPlaying(!audioRef.current.paused);
                 }}
-                className="bg-blue-500 text-white px-4 py-1 rounded"
+                className="bg-blue-500 text-white px-1 sm:px-4 py-1 rounded"
               >
                 {isPlaying ? "⏸️" : "▶️"}
               </button>

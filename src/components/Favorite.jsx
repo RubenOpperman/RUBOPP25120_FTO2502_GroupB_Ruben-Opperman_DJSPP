@@ -63,12 +63,14 @@ export default function FavouritesPage() {
   };
 
   return (
-    <div className="p-6 bg-Background min-h-screen text-black-text font-serif mb-15">
+    <div className="p-6 bg-Background min-h-screen text-black-text transition-all duration-300 font-serif mb-15">
       <h1 className="text-3xl font-bold mb-1">Your Favourites</h1>
-      <p className="text-black-text mb-5">Your saved episodes from all shows</p>
+      <p className="text-black-text transition-all duration-300 mb-5">
+        Your saved episodes from all shows
+      </p>
 
       {favourites.length === 0 ? (
-        <p>You have no favourite episodes yet.</p>
+        <p className="">You have no favourite episodes yet.</p>
       ) : (
         <>
           <div className="mb-6 ">
@@ -77,7 +79,7 @@ export default function FavouritesPage() {
             </label>
             <select
               id="sort"
-              className=" text-black-text bg-Background border px-2  py-1 rounded"
+              className=" text-black-text transition-all duration-300 bg-Background border px-2  py-1 rounded"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
             >
@@ -90,34 +92,39 @@ export default function FavouritesPage() {
 
           {Object.entries(grouped).map(([podcastTitle, episodes]) => (
             <div key={podcastTitle} className="mb-8">
-              <h2 className="text-2xl font-semibold mb-3">{podcastTitle}</h2>
+              <h2 className="text-2xl  font-semibold mb-3">{podcastTitle}</h2>
 
-              <ul className="space-y-4">
+              <ul className="space-y-4 ">
                 {episodes
                   .sort(sortFunctions[sortBy])
                   .map(({ episode, season, podcast, addedAt }) => (
                     <li
                       key={`${podcast.id}-S${season.season}-E${episode.episode}`}
-                      className="border-2 border-gray-400 rounded-lg p-4 bg-Podcast-card"
+                      className="transition-all duration-300 border-2 border-gray-400 rounded-lg p-4 bg-Podcast-card"
                     >
-                      <div className="flex gap-4 items-start">
+                      <div className="flex flex-wrap flex-col sm:flex-row  gap-4 items-start ">
                         <img
                           src={season.image}
                           alt="season cover"
-                          className="w-24 h-24 object-cover rounded-lg"
+                          className="w-24 h-24 object-cover rounded-lg shrink-0"
                         />
-                        <div className="flex-1">
-                          <h3 className="text-lg text-black-text font-bold mb-2">
+                        <div className="flex-1 ">
+                          <h3 className="text-lg text-black-text font-bold transition-all duration-300 mb-2">
                             {episode.title}
                           </h3>
-                          <p className="text-sm text-black-text font-bold">
+                          <p className="text-sm text-black-text transition-all duration-300 font-bold">
                             Season {season.season} | Episode {episode.episode}
                           </p>
-                          <p className="text-sm text-black-text">
+                          <p className="sm:text-md text-sm transition-all duration-300 text-black-text line-clamp-2">
                             {episode.description}
                           </p>
-                          <p className="text-xs text-secondary-font-color mt-2">
-                            Added at: {new Date(addedAt).toLocaleString()}
+                          <p className="text-xs transition-all duration-300 text-secondary-font-color mt-2">
+                            Added at:{" "}
+                            {new Date(addedAt).toLocaleDateString("en-US", {
+                              year: "numeric",
+                              month: "long",
+                              day: "numeric",
+                            })}
                           </p>
                         </div>
                       </div>

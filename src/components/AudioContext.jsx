@@ -1,11 +1,32 @@
 import { createContext, useContext, useState, useRef, useEffect } from "react";
 
+/**
+ * React Context to provide audio-related state and controls across the app.
+ * @type {React.Context}
+ */
 const AudioContext = createContext();
 
+/**
+ * Custom hook to access the audio context.
+ *
+ * @returns {{
+ *   currentEpisode: Object|null,
+ *   playEpisode: function(Object, string, Object): void,
+ *   audioRef: React.MutableRefObject<HTMLAudioElement|null>
+ * }}
+ */
 export function useAudio() {
   return useContext(AudioContext);
 }
 
+/**
+ * AudioProvider component that wraps children with audio playback functionality and UI.
+ *
+ * @component
+ * @param {Object} props
+ * @param {React.ReactNode} props.children - Components that need access to the audio context.
+ * @returns {JSX.Element}
+ */
 export function AudioProvider({ children }) {
   const [currentEpisode, setCurrentEpisode] = useState(null);
   const [currentSeasonImg, setCurrentSeasonImg] = useState(null);
@@ -14,9 +35,13 @@ export function AudioProvider({ children }) {
   const [isPlaying, setIsPlaying] = useState(true);
   const [progress, setProgress] = useState(0);
 
+  // Update progress bar as audio plays
   useEffect(() => {
     const audio = audioRef.current;
 
+    /**
+     * Updates the progress percentage based on current time and duration.
+     */
     const updateProgress = () => {
       if (audio && audio.duration) {
         setProgress((audio.currentTime / audio.duration) * 100);
@@ -29,18 +54,22 @@ export function AudioProvider({ children }) {
     }
   }, [currentEpisode]);
 
+  // Load and autoplay when a new episode is set
   useEffect(() => {
     if (audioRef.current && currentEpisode) {
       audioRef.current.load();
       audioRef.current.play();
     }
   }, [currentEpisode]);
-
+  // Prevent accidental tab close while audio is playing
   useEffect(() => {
+    /**
+     * Warn user when they try to leave the page while audio is playing.
+     * @param {BeforeUnloadEvent} event
+     */
     const handleBeforeUnload = (event) => {
       if (audioRef.current && !audioRef.current.paused) {
         event.preventDefault();
-        event.returnValue = "";
         return "";
       }
     };
@@ -48,7 +77,13 @@ export function AudioProvider({ children }) {
     window.addEventListener("beforeunload", handleBeforeUnload);
     return () => window.removeEventListener("beforeunload", handleBeforeUnload);
   }, [currentEpisode]);
-
+  /**
+   * Play an episode and update related metadata.
+   *
+   * @param {Object} episode - The episode object to play.
+   * @param {string} seasonImg - The season image URL.
+   * @param {Object} podcast - The podcast object (used for display info).
+   */
   const playEpisode = (episode, seasonImg, podcast) => {
     setCurrentEpisode(episode);
     setCurrentSeasonImg(seasonImg);

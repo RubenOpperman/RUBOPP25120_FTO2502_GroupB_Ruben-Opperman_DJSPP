@@ -3,6 +3,23 @@ import Genres from "./genres";
 import { genres } from "../data/genreData";
 import GetGenreIds from "../utils/getGenreIds";
 
+/**
+ * MainContent Component
+ *
+ * Renders a podcast card with image, title, number of seasons, genres, and last updated date.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {string} props.id - The unique ID of the podcast (unused here but available for extension)
+ * @param {string} props.title - The title of the podcast
+ * @param {string} props.description - Description of the podcast (currently unused)
+ * @param {number} props.seasons - Total number of seasons the podcast has
+ * @param {string} props.image - URL for the podcast cover image
+ * @param {string} props.updated - ISO date string indicating when the podcast was last updated
+ * @param {Array<number>} props.genres - Array of genre IDs associated with the podcast
+ *
+ * @returns {JSX.Element} A card component displaying podcast info
+ */
 export default function MainContent({
   id,
   title,

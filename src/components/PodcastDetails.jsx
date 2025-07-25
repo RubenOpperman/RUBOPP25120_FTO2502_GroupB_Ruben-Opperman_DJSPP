@@ -5,6 +5,19 @@ import GetGenreIds from "../utils/getGenreIds";
 import { useEffect, useState } from "react";
 import Seasons from "./Seasons";
 
+/**
+ * PodcastDetail Component
+ *
+ * Fetches and displays detailed information about a single podcast using the `id` from the URL parameters.
+ * It shows the podcast image, title, description, genres, last updated date, total seasons, and episode count.
+ * It also includes a back navigation button and renders the `Seasons` component.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {Array<Object>} props.data - List of all podcasts used to map genre IDs to names
+ *
+ * @returns {JSX.Element} Detailed podcast view with metadata and season display
+ */
 export default function PodcastDetail({ data }) {
   const { id } = useParams();
   const [podcast, setPodcast] = useState(null);
@@ -14,6 +27,14 @@ export default function PodcastDetail({ data }) {
   const [selectedSeason, setSelectedSeason] = useState(null);
 
   useEffect(() => {
+    /**
+     * Asynchronously fetches podcast data by ID from the API,
+     * updates state for loading, error, podcast data, episode count, and selected season.
+     *
+     * @async
+     * @function loadPodcast
+     * @throws Will throw an error if the podcast is not found or has no seasons.
+     */
     async function loadPodcast() {
       try {
         setLoading(true);

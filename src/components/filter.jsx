@@ -1,3 +1,18 @@
+/**
+ * Filter Component
+ *
+ * Provides dropdowns for filtering podcasts by genre and sorting them
+ * by title or release date. It communicates selected options to parent
+ * components through callbacks.
+ *
+ * @component
+ * @param {Object} props - Props passed to the component
+ * @param {function} props.genreFilter - Callback function to filter podcasts by genre
+ * @param {function} props.onSortChange - Callback function to update the sorting method
+ * @param {string} props.sort - Current sort value
+ * @param {string} props.genre - Currently selected genre value
+ */
+
 export default function Filter({ genreFilter, onSortChange, sort, genre }) {
   const handleGenrePicked = (e) => {
     const selectedGenre = e.target.value;

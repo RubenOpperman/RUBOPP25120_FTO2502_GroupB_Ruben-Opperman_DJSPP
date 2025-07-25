@@ -6,12 +6,30 @@ import Slider from "react-slick";
 
 import { Link } from "react-router-dom";
 
+/**
+ * Carousel Component
+ *
+ * Displays a carousel of recommended podcast shows using `react-slick`.
+ * It filters podcasts that belong to the "History" genre and shows them in a responsive slider.
+ *
+ * @component
+ * @param {Object} props
+ * @param {Array<Object>} props.podcastData - Array of podcast objects containing data like id, title, image, and genres.
+ * @returns {JSX.Element} A carousel section with recommended podcast cards.
+ */
 export default function Carousel({ podcastData }) {
+  /**
+   * Filter the podcast data to include only those that belong to the "History" genre.
+   * @type {Array<Object>}
+   */
   const recommendedShows = podcastData.filter((podcast) => {
     const genreList = GetGenreIds(podcast.genres, genres);
     return genreList.includes("History");
   });
-
+  /**
+   * Settings configuration for the react-slick slider component.
+   * @type {Object}
+   */
   const settings = {
     dots: false,
     infinite: true,

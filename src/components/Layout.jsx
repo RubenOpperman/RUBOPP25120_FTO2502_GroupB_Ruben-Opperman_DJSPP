@@ -6,23 +6,25 @@ import Carousel from "./Carousel";
 import { useLocation } from "react-router-dom";
 
 /**
- * Layout component that conditionally renders navigation, filter, pagination,
- * and page content based on the current route.
+ * Layout Component
  *
- * @param {Object} props - Component props.
- * @param {React.ReactNode} props.children - The main content to be displayed inside the layout.
- * @param {number} props.currentPage - Current page number for pagination.
- * @param {number} props.totalPages - Total number of pages for pagination.
- * @param {React.ReactNode} props.prevBtn - Element or component representing the previous page button.
- * @param {React.ReactNode} props.nextBtn - Element or component representing the next page button.
- * @param {(event: React.ChangeEvent<HTMLInputElement>) => void} props.onSearchChange - Handler function for search input changes.
- * @param {(selectedGenre: string) => void} props.onGenreFilter - Handler function called when a genre is selected in Filter.
- * @param {(selectedSort: string) => void} props.onSortChange - Handler function called when a sort option is selected in Filter.
- * @param {string} props.search - Current search query string.
- * @param {string} props.genre - Current selected genre filter.
- * @param {string} props.sort - Current selected sort order.
+ * A shared layout wrapper for the application. Conditionally renders the Navbar, Carousel,
+ * Filter bar, and Pagination controls based on the current route. Also renders child components.
  *
- * @returns {JSX.Element} The rendered layout component.
+ * @component
+ * @param {Object} props - Component props
+ * @param {React.ReactNode} props.children - The content to display inside the layout
+ * @param {number} props.currentPage - Current page number for pagination
+ * @param {number} props.totalPages - Total number of pages available
+ * @param {Function} props.prevBtn - Function to handle "previous page" navigation
+ * @param {Function} props.nextBtn - Function to handle "next page" navigation
+ * @param {Function} props.onSearchChange - Callback function when search input is changed
+ * @param {Function} props.onGenreFilter - Callback function when a genre is selected
+ * @param {Function} props.onSortChange - Callback function when a sort option is selected
+ * @param {string} props.search - Current search input value
+ * @param {string} props.genre - Currently selected genre
+ * @param {string} props.sort - Currently selected sort option
+ * @param {Array<Object>} props.podcastData - Array of podcast objects to display in the carousel
  */
 export default function Layout({
   children,

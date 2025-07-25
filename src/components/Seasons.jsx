@@ -1,10 +1,30 @@
 import Episodes from "./Episodes";
 
+/**
+ * Seasons Component
+ *
+ * Displays the currently selected season of a podcast, allows users to choose different seasons via a dropdown,
+ * and renders episode details for the selected season.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {Object} props.podcast - The full podcast object containing metadata and seasons array.
+ * @param {number} props.selectedSeason - The currently selected season number.
+ * @param {Function} props.setSelectedSeason - Function to update the selected season state.
+ *
+ * @returns {JSX.Element} Rendered Seasons component.
+ */
 export default function Seasons({
   podcast,
   selectedSeason,
   setSelectedSeason,
 }) {
+  /**
+   * Handles change in selected season from dropdown.
+   * Converts the selected value to a number and updates the selected season.
+   *
+   * @param {React.ChangeEvent<HTMLSelectElement>} e - The change event from the dropdown.
+   */
   function handleSelectedSeason(e) {
     setSelectedSeason(Number(e.target.value));
   }

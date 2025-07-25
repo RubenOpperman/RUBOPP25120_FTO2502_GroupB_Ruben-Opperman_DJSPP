@@ -2,11 +2,21 @@ import { useState, useEffect } from "react";
 import { useAudio } from "./AudioContext";
 import Heart from "react-heart";
 
+/**
+ * FavouritesPage Component
+ *
+ * Displays a list of the user's favourited podcast episodes.
+ * Allows playing episodes, toggling favourites, and sorting by title or date.
+ *
+ * @component
+ * @returns {JSX.Element} A full-page view of grouped and sortable favourite podcast episodes.
+ */
 export default function FavouritesPage() {
   const [favourites, setFavourites] = useState([]);
   const [sortBy, setSortBy] = useState("title-asc");
   const { playEpisode } = useAudio();
 
+  // Load favourites from localStorage on mount
   useEffect(() => {
     const stored = localStorage.getItem("favourites");
     if (stored) {
@@ -14,15 +24,38 @@ export default function FavouritesPage() {
     }
   }, []);
 
+  /**
+   * Generates a unique ID string for a favourite entry.
+   *
+   * @param {Object} podcast - Podcast object.
+   * @param {Object} season - Season object.
+   * @param {Object} episode - Episode object.
+   * @returns {string} Unique favourite ID.
+   */
   function createFavId(podcast, season, episode) {
     return `${podcast.id}-S${season.season}-E${episode.episode}`;
   }
 
+  /**
+   * Checks if the episode is currently favourited.
+   *
+   * @param {Object} podcast - Podcast object.
+   * @param {Object} season - Season object.
+   * @param {Object} episode - Episode object.
+   * @returns {boolean} True if favourited, otherwise false.
+   */
   function isFavourited(podcast, season, episode) {
     const id = createFavId(podcast, season, episode);
     return favourites.some((fav) => fav.id === id);
   }
 
+  /**
+   * Adds or removes an episode from the favourites list.
+   *
+   * @param {Object} podcast - Podcast object.
+   * @param {Object} season - Season object.
+   * @param {Object} episode - Episode object.
+   */
   function toggleFavourite(podcast, season, episode) {
     const favId = createFavId(podcast, season, episode);
     const exists = favourites.find((fav) => fav.id === favId);
@@ -44,7 +77,11 @@ export default function FavouritesPage() {
     setFavourites(updated);
     localStorage.setItem("favourites", JSON.stringify(updated));
   }
-
+  /**
+   * Groups favourites by podcast title.
+   *
+   * @type {Object<string, Array<Object>>}
+   */
   const grouped = favourites.reduce((acc, fav) => {
     const podcastTitle = fav.podcast.title;
     if (!acc[podcastTitle]) {
@@ -55,6 +92,9 @@ export default function FavouritesPage() {
     return acc;
   }, {});
 
+  /**
+   * Sorting functions for the favourites list.
+   */
   const sortFunctions = {
     "title-asc": (a, b) => a.episode.title.localeCompare(b.episode.title),
     "title-desc": (a, b) => b.episode.title.localeCompare(a.episode.title),

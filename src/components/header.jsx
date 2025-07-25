@@ -2,17 +2,36 @@ import { useState, useEffect } from "react";
 import { NavLink } from "react-router-dom";
 import ThemeToggle from "./ThemeToggle";
 
+/**
+ * Navbar Component
+ *
+ * Renders the main navigation bar with links, a search toggle button,
+ * a conditional search input, and a theme toggle switch.
+ *
+ * @component
+ * @param {Object} props - Props passed to the Navbar component
+ * @param {function} props.onChange - Callback function triggered when search input changes
+ * @param {string} props.search - Current value of the search input
+ */
 export default function Navbar({ onChange, search }) {
   const [searchBar, setSearchBar] = useState(false);
-
+  /**
+   * Handles changes in the search input field.
+   *
+   * @param {React.ChangeEvent<HTMLInputElement>} e - The input change event
+   */
   const handleInputChange = (e) => {
     onChange(e.target.value);
   };
 
+  /**
+   * Toggles visibility of the search input field.
+   */
   function ToggleSearch() {
     setSearchBar((prevSearchBarState) => !prevSearchBarState);
   }
 
+  // Show search bar automatically if search query exists
   useEffect(() => {
     if (search !== "") setSearchBar(true);
   }, [search]);

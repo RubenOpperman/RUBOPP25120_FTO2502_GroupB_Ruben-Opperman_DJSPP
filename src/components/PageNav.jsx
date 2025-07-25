@@ -1,3 +1,19 @@
+/**
+ * PageNav Component
+ *
+ * Renders pagination controls with "Previous" and "Next" buttons,
+ * along with the current page and total page count.
+ *
+ * @component
+ * @param {Object} props - Component props
+ * @param {number} props.currentPage - The current active page number
+ * @param {number} props.totalPages - Total number of pages available
+ * @param {Function} props.nextBtn - Callback function to go to the next page
+ * @param {Function} props.prevBtn - Callback function to go to the previous page
+ *
+ * @returns {JSX.Element} Pagination UI component
+ */
+
 export default function PageNav({ currentPage, totalPages, nextBtn, prevBtn }) {
   return (
     <div className="flex justify-center gap-4 py-4 bg-Background  bg- pb-25 ">

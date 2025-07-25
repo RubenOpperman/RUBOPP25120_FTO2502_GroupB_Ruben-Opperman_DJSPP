@@ -17,6 +17,12 @@ It allows users to browse, filter, sort, and search podcasts fetched from an ext
 - ✅ Built using a **component-based architecture**
 - ✅ Pagination controls with **Previous** and **Next** buttons
 - ✅ View **podcast details**, including seasons and episodes
+- ✅ **Audio player** with playback controls
+- ✅ Add/remove episodes to **Favorites**
+- ✅ View grouped episodes on the **Favorites** page
+- ✅ LocalStorage persistence for favorites
+- ✅ Toggle between **Light/Dark** themes
+- ✅ **Animated search bar** with toggle button
 
 ---
 
@@ -47,7 +53,17 @@ It allows users to browse, filter, sort, and search podcasts fetched from an ext
    - Season list
    - Episodes per season
    - Descriptions and release dates
-6. **Pagination** is implemented to show **8 podcasts per page**, with **Previous** and **Next** controls for smooth navigation.
+6. **Pagination** is implemented to show **8 podcasts per page**, with **Previous** and **Next** controls.
+7. The built-in **audio player** allows users to:
+   - Play/pause episodes
+8. The **Favorites** system allows users to:
+   - Click a heart to add/remove episodes from favorites
+   - View favorites grouped by show on a dedicated page
+   - Sort favorites by title/date added
+   - Stored in LocalStorage
+9. The **Theme toggle** lets users switch between light and dark mode.
+10. The **search bar** appears with animation and can be toggled with a button.
+11. Navigation links underline when active.
 
 ---
 
@@ -60,21 +76,22 @@ It allows users to browse, filter, sort, and search podcasts fetched from an ext
 ├── 📁 src/
 │   ├── 📁 assets/
 │   ├── 📁 components/
+│   │   ├── AudioContext.jsx
+│   │   ├── Carousel.jsx
 │   │   ├── Episodes.jsx
+│   │   ├── Favorite.jsx
 │   │   ├── filter.jsx
 │   │   ├── genres.jsx
 │   │   ├── header.jsx
 │   │   ├── Layout.jsx
 │   │   ├── mainContent.jsx
 │   │   ├── PageNav.jsx
-│   │   ├── PodcastDetails.jsx
-│   │   └── Seasons.jsx
+│   │   ├── PodcastDetail.jsx
+│   │   ├── Seasons.jsx
+│   │   ├── ThemeContext.jsx
+│   │   └── ThemeToggle.jsx
 │   ├── 📁 data/
-│   │   ├── genreData.js
-│   │   └── podcastData.js
 │   ├── 📁 utils/
-│   │   ├── formatDate.js
-│   │   └── getGenreIds.js
 │   ├── App.css
 │   ├── App.jsx
 │   ├── index.css
@@ -85,7 +102,9 @@ It allows users to browse, filter, sort, and search podcasts fetched from an ext
 ├── package-lock.json
 ├── package.json
 ├── README.md
-└── vite.config.js
+├── vercel.json
+├── vite.config.js
+
 ```
 
 ## ⚡ Getting Started
@@ -93,7 +112,7 @@ It allows users to browse, filter, sort, and search podcasts fetched from an ext
 ### 1️⃣ Clone the Repository
 
 ```bash
-git clone https://github.com/RubenOpperman/RUBOPP25120_FTO2502_GroupB_Ruben-Opperman_DJS05.git
+git clone https://github.com/RubenOpperman/RUBOPP25120_FTO2502_GroupB_Ruben-Opperman_DJSPP.git
 ```
 
 ### 2️⃣ Install Dependencies
@@ -109,3 +128,7 @@ Run the app with Vite:
 ```bash
 npm run dev
 ```
+
+## Vercel Deployment link
+
+https://podcast-app-landing-page.vercel.app/

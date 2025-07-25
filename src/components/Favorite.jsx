@@ -70,16 +70,16 @@ export default function FavouritesPage() {
       </p>
 
       {favourites.length === 0 ? (
-        <p className="">You have no favourite episodes yet.</p>
+        <p>You have no favourite episodes yet.</p>
       ) : (
         <>
           <div className="mb-6 ">
-            <label className="mr-2  font-semibold" htmlFor="sort">
+            <label className="mr-2   font-semibold" htmlFor="sort">
               Sort by:
             </label>
             <select
               id="sort"
-              className=" text-black-text transition-all duration-300 bg-Background border px-2  py-1 rounded"
+              className=" text-black-text bg-Podcast-card transition-all duration-300 bg-Background border px-2  py-1 rounded"
               value={sortBy}
               onChange={(e) => setSortBy(e.target.value)}
             >

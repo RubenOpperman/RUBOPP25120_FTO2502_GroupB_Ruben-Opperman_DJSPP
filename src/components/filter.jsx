@@ -17,7 +17,7 @@ export default function Filter({ genreFilter, onSortChange, sort, genre }) {
 
       <form
         onSubmit={(event) => event.preventDefault()}
-        className="border-2 flex wrap bg-background text-sm transition-all duration-300   text-black-text py-2 px-4 rounded-2xl"
+        className="border-2 flex wrap bg-Podcast-card text-sm transition-all duration-300   text-black-text py-2 px-4 rounded-2xl"
       >
         <label htmlFor="genre">Genres:</label>
         <select
@@ -25,7 +25,7 @@ export default function Filter({ genreFilter, onSortChange, sort, genre }) {
           name="genre"
           id="genre"
           value={genre}
-          className=" outline-none transition-all duration-300 bg-Background text-sm  cursor-pointer"
+          className=" outline-none transition-all duration-300 bg-Podcast-card text-sm  cursor-pointer"
         >
           <option value="">ALL</option>
           <option value="Personal Growth">Personal Growth</option>
@@ -44,7 +44,7 @@ export default function Filter({ genreFilter, onSortChange, sort, genre }) {
 
       <form
         onSubmit={(event) => event.preventDefault()}
-        className="border-2 bg-background transition-all duration-300  text-black-text text-sm   py-2 px-4 rounded-2xl"
+        className="border-2 bg-Podcast-card transition-all duration-300  text-black-text text-sm   py-2 px-4 rounded-2xl"
       >
         <label htmlFor="sort">SORT:</label>
         <select
@@ -52,7 +52,7 @@ export default function Filter({ genreFilter, onSortChange, sort, genre }) {
           name="sort"
           id="sort"
           value={sort}
-          className="outline-none transition-all duration-300 text-sm bg-Background cursor-pointer"
+          className="outline-none transition-all duration-300 text-sm bg-Podcast-card cursor-pointer"
         >
           <option value="sort">NONE</option>
           <option value="A-Z">A-Z</option>

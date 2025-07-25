@@ -3,13 +3,13 @@
 @import "slick-carousel/slick/slick-theme.css";
 
 :root {
-  --color-Background: #fff;
+  --color-Background: #dbe2e9;
   --color-white-text: #fff;
   --color-black-text: #121212;
   --color-gray-text: #6a7282;
   --color-secondary-font-color: #686868;
   --color-NavBar-bg: #4169e1;
-  --color-Podcast-card: #f9fafb;
+  --color-Podcast-card: #fff;
   --color-Font-primary-color: #1f2937;
   --color-border-color: #384fd1;
 }
